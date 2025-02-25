@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Available Offices</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Welcome, <span th:text="${username}"></span>!</h1>
+<a href="/logout">Logout</a>
+
+<header>
+    <h1>Available Offices</h1>
+</header>
+
+<main>
+    <div class="office-list">
+        <!-- Loop through all offices -->
+        <div class="office-card" th:each="office : ${offices}">
+            <h2 th:text="${office.name}"></h2>
+            <p th:text="${office.description}"></p>
+
+            <div class="actions">
+                <a class="details-btn" th:href="@{/offices/{id}(id=${office.id})}">Details</a>
+                <button class="rent-btn">Rent</button>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
