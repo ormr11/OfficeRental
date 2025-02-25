@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome Page</title>
+</head>
+<body>
+<h1 th:text="${welcomeText}">Welcome!</h1>
+
+<div th:if="${#httpServletRequest.remoteUser}">
+    <span>Welcome, <span th:if="${#httpServletRequest.remoteUser != null}" th:text="${#httpServletRequest.remoteUser}"></span>!</span>
+    <a href="/logout">Logout</a>
+</div>
+
+<div th:if="${#httpServletRequest.remoteUser == null}">
+    <a href="/register">Register</a> | <a href="/login">Login</a>
+</div>
+</body>
+</html>

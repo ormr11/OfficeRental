@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome Page</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1 th:text="${welcomeText}">Welcome!</h1>
+
+<div th:if="${username}">
+    <span>Welcome, <span th:text="${username}"></span>!</span>
+    <a href="/logout">Logout</a>
+    <a href="/offices">Offices</a>
+</div>
+<div th:if="${username == null}">
+    <a href="/register">Register</a> | <a href="/login">Login</a>
+</div>
+</body>
+</html>
